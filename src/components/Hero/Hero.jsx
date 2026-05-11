@@ -65,7 +65,7 @@ function Hero() {
             <h1 className="hero-title">
               I'm <span className="accent">Surya Sekhar</span>,
               <br />
-              Front-End Developer
+              Full Stack Developer
               <span className="hero-cursor" ref={cursorRef}>_</span>
             </h1>
 
@@ -89,7 +89,7 @@ function Hero() {
               </div>
               <div className="hero-profile-info">
                 <h3 className="hero-profile-name">Surya</h3>
-                <p className="hero-profile-role">Front-End Developer</p>
+                <p className="hero-profile-role">Full stack Developer</p>
               </div>
 
               <div className="hero-profile-details">
