@@ -20,12 +20,7 @@ function Footer() {
 
   return (
     <footer className="footer">
-      {/* Page indicator dots */}
-      <div className="footer-page-dots">
-        <span className="footer-page-dot footer-page-dot--active" />
-        <span className="footer-page-dot" />
-        <span className="footer-page-dot" />
-      </div>
+
 
       <div className="container">
         <div className="footer-inner">
