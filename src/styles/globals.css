@@ -26,7 +26,7 @@
   /* Spacing */
   --section-padding: 100px 0;
   --container-width: 1140px;
-  --container-padding: 0 24px;
+  --container-padding: 0 24px 0 84px;
 
   /* Transitions */
   --transition-fast: 0.2s ease;
