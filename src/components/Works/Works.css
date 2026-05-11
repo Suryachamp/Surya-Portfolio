@@ -1,0 +1,237 @@
+/* src/components/Works/Works.css */
+
+.works {
+  background-color: var(--color-bg-secondary);
+}
+
+.works-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.works-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 10px;
+}
+
+.works-subtitle {
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+/* Carousel layout */
+.works-carousel {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.works-project-card {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 40px;
+  align-items: center;
+  animation: fadeIn 0.4s ease;
+}
+
+/* Nav buttons */
+.works-nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.works-nav-btn:hover {
+  background: var(--color-accent-dim);
+  border-color: var(--color-accent-border);
+  color: var(--color-accent);
+}
+
+/* Mock screen */
+.works-mock-screen {
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.works-screen-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--color-bg-card);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.works-screen-dots {
+  display: flex;
+  gap: 5px;
+}
+
+.works-screen-dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: block;
+}
+
+.works-screen-bar {
+  flex: 1;
+  height: 6px;
+  background: var(--color-border);
+  border-radius: 3px;
+}
+
+.works-screen-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 200px;
+}
+
+.works-screen-preview {
+  padding: 14px;
+  border-right: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+}
+
+.works-code-line {
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+}
+
+.works-code-line--accent {
+  background: rgba(0, 229, 176, 0.2);
+}
+
+.works-browser-preview {
+  padding: 14px;
+}
+
+.works-browser-nav {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.works-browser-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-border);
+}
+
+/* Project info */
+.works-project-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 12px;
+}
+
+.works-project-desc {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.works-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.works-tag {
+  font-family: var(--font-display);
+  font-size: 11px;
+  color: var(--color-accent);
+  background: var(--color-accent-dim);
+  border: 1px solid var(--color-accent-border);
+  border-radius: var(--radius-pill);
+  padding: 3px 10px;
+}
+
+.works-view-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 10px 20px;
+  transition: border-color var(--transition-fast), color var(--transition-fast), background var(--transition-fast);
+}
+
+.works-view-btn:hover {
+  border-color: var(--color-accent-border);
+  color: var(--color-accent);
+  background: var(--color-accent-dim);
+}
+
+/* Indicators */
+.works-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 32px;
+}
+
+.works-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-border);
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.works-indicator--active {
+  background: var(--color-accent);
+  transform: scale(1.3);
+}
+
+/* Responsive */
+@media (max-width: 1023px) {
+  .works-project-card {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 767px) {
+  .works-carousel {
+    gap: 12px;
+  }
+
+  .works-nav-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .works-screen-body {
+    height: 150px;
+  }
+}
