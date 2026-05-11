@@ -105,7 +105,7 @@
 
 /* Action icons */
 .navbar-actions {
-  display: flex;
+  display: none;
   align-items: center;
   gap: 4px;
 }
@@ -203,9 +203,12 @@
 /* Responsive */
 @media (max-width: 767px) {
 
-  .navbar-links,
-  .navbar-actions {
+  .navbar-links {
     display: none;
+  }
+
+  .navbar-actions {
+    display: flex;
   }
 
   .navbar-hamburger {
