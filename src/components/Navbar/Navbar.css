@@ -202,6 +202,9 @@
 
 /* Responsive */
 @media (max-width: 767px) {
+  .navbar-inner {
+    gap: 16px;
+  }
 
   .navbar-links {
     display: none;
@@ -209,10 +212,12 @@
 
   .navbar-actions {
     display: flex;
+    margin-left: auto;
   }
 
   .navbar-hamburger {
     display: flex;
+    margin-left: 0;
   }
 
   .navbar-mobile-menu {
