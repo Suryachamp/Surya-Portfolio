@@ -57,6 +57,7 @@
   display: grid;
   grid-template-columns: 1fr auto auto;
   align-items: center;
+  padding-top: 30px;
   animation: fadeInUp 0.8s ease both;
 }
 
