@@ -139,9 +139,3 @@
     text-align: center;
   }
 }
-
-@media (max-width: 480px) {
-  .footer-inner {
-    grid-template-columns: 1fr;
-  }
-}
