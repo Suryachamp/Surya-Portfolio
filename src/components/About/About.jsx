@@ -32,15 +32,26 @@ function About() {
 
           {/* Right: Image */}
           <div className="about-image-wrapper">
-            <div className="about-image-frame">
-              {/* Placeholder for developer image */}
-              <div className="about-image-placeholder">
-                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" strokeWidth="1.5">
-                  <rect x="2" y="3" width="20" height="14" rx="2" />
-                  <path d="M8 21h8M12 17v4" />
-                  <path d="M7 8l3 3-3 3M13 14h4" />
-                </svg>
-                <p>Developer at Work</p>
+            <div className="about__image-frame">
+              <div className="about__terminal">
+                <div className="about__terminal-header">
+                  <span style={{background:'#ff5f57'}}/>
+                  <span style={{background:'#febc2e'}}/>
+                  <span style={{background:'#28c840'}}/>
+                  <span className="about__terminal-title">surya.js</span>
+                </div>
+                <div className="about__terminal-body">
+                  <p><span className="t-purple">const</span> <span className="t-blue">developer</span> = {'{'}</p>
+                  <p>&nbsp;&nbsp;<span className="t-green">name</span>: <span className="t-yellow">"Surya"</span>,</p>
+                  <p>&nbsp;&nbsp;<span className="t-green">role</span>: <span className="t-yellow">"Full Stack Dev"</span>,</p>
+                  <p>&nbsp;&nbsp;<span className="t-green">skills</span>: [</p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;<span className="t-yellow">"React"</span>, <span className="t-yellow">"Node"</span>,</p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;<span className="t-yellow">"MongoDB"</span></p>
+                  <p>&nbsp;&nbsp;],</p>
+                  <p>&nbsp;&nbsp;<span className="t-green">available</span>: <span className="t-purple">true</span></p>
+                  <p>{'}'}</p>
+                  <p className="t-blink">█</p>
+                </div>
               </div>
             </div>
             {/* Decorative border accent */}
