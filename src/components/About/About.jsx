@@ -81,12 +81,6 @@ function About() {
               <p className="about-timeline-org">Nava Nalanda School | Kolkata, India</p>
               <p className="about-timeline-date">2022 | Percentage: 86%</p>
             </div>
-            <div className="about-timeline-item">
-              <div className="about-timeline-dot"></div>
-              <h4 className="about-timeline-role">WBBSE</h4>
-              <p className="about-timeline-org">Andhra Association Higher School | Kolkata, India</p>
-              <p className="about-timeline-date">2020 | Percentage: 76%</p>
-            </div>
           </div>
         </div>
       </div>

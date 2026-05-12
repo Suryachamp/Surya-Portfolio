@@ -1,6 +1,10 @@
 // src/components/Works/Works.jsx
 import React, { useState } from 'react'
 import './Works.css'
+import BudgetBoxImg from '../../media/Budget-box.png'
+import BudgetDataImg from '../../media/Budget-data.png'
+import SMDashboardImg from '../../media/SM-dashboard.png'
+import SMAddStudentImg from '../../media/SM-add-student.png'
 
 // Project data
 const PROJECTS = [
@@ -9,14 +13,16 @@ const PROJECTS = [
     title: 'Budget Box',
     description: 'Offline-first budgeting application featuring a dynamic analytics dashboard for financial insights and Node.js + PostgreSQL sync APIs.',
     tags: ['Next.js', 'IndexedDB', 'Node.js', 'PostgreSQL'],
-    url: '#',
+    url: 'https://budgetboxfrontend.vercel.app/',
+    images: [BudgetBoxImg, BudgetDataImg],
   },
   {
     id: 2,
     title: 'Quorium Student Management System',
     description: 'Responsive student management app with a dashboard, searchable list, and add-student form using the DummyJSON API.',
     tags: ['React', 'TailwindCSS', 'shadcn/ui'],
-    url: '#',
+    url: 'https://spiffy-cobbler-ce6d95.netlify.app/',
+    images: [SMDashboardImg, SMAddStudentImg],
   },
   {
     id: 3,
@@ -63,7 +69,15 @@ function Works() {
 
           {/* Project display */}
           <div className="works-project-card" key={project.id}>
-            {/* Mock browser / screen UI */}
+            {/* Mock browser / screen UI or Images */}
+            {project.images ? (
+              <div className="works-project-images">
+                <img src={project.images[0]} alt={`${project.title} main`} className="works-image-main" />
+                {project.images[1] && (
+                  <img src={project.images[1]} alt={`${project.title} secondary`} className="works-image-secondary" />
+                )}
+              </div>
+            ) : (
             <div className="works-mock-screen">
               <div className="works-screen-header">
                 <div className="works-screen-dots">
@@ -99,6 +113,7 @@ function Works() {
                 </div>
               </div>
             </div>
+            )}
 
             {/* Info + CTA */}
             <div className="works-project-info">
