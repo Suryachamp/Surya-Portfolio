@@ -24,6 +24,38 @@ function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Highlight active nav link on scroll using IntersectionObserver
+  useEffect(() => {
+    const sectionIds = NAV_LINKS.map(link => link.href.replace('#', ''))
+    const sections = sectionIds
+      .map(id => document.getElementById(id))
+      .filter(Boolean)
+
+    if (sections.length === 0) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const matchedLink = NAV_LINKS.find(
+              link => link.href === `#${entry.target.id}`
+            )
+            if (matchedLink) {
+              setActiveLink(matchedLink.label)
+            }
+          }
+        })
+      },
+      {
+        rootMargin: '-20% 0px -60% 0px',
+        threshold: 0,
+      }
+    )
+
+    sections.forEach(section => observer.observe(section))
+    return () => sections.forEach(section => observer.unobserve(section))
+  }, [])
+
   const handleNavClick = (label, href) => {
     setActiveLink(label)
     setMenuOpen(false)
