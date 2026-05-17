@@ -2,17 +2,12 @@
 import React from 'react'
 import './Footer.css'
 
-const FOOTER_LINKS = [
-  { label: 'Privacy Policy', href: '#' },
-  { label: 'Terms of Service', href: '#' },
-  { label: 'Sitemap', href: '#' },
-]
 
 const SOCIAL_LINKS = [
-  { label: 'GitHub', href: 'https://github.com' },
-  { label: 'LinkedIn', href: 'https://linkedin.com' },
+  { label: 'GitHub', href: 'https://github.com/Suryachamp' },
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/surya-sekhar-prajapati-632708262/' },
   { label: 'Twitter', href: 'https://twitter.com' },
-  { label: 'Email', href: 'mailto:surya@example.dev' },
+  { label: 'Email', href: 'mailto:surya2004sekhar@gmail.com' },
 ]
 
 function Footer() {
@@ -36,14 +31,6 @@ function Footer() {
             </p>
           </div>
 
-          {/* Links */}
-          <nav className="footer-links" aria-label="Footer navigation">
-            {FOOTER_LINKS.map(link => (
-              <a key={link.label} href={link.href} className="footer-link">
-                {link.label}
-              </a>
-            ))}
-          </nav>
 
           {/* Social */}
           <div className="footer-social">

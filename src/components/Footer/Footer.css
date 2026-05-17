@@ -27,10 +27,11 @@
 }
 
 .footer-inner {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 40px;
-  align-items: start;
   margin-bottom: 40px;
 }
 
@@ -83,8 +84,9 @@
 /* Social */
 .footer-social {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 24px;
 }
 
 .footer-social-link {
@@ -126,11 +128,9 @@
 /* Responsive */
 @media (max-width: 767px) {
   .footer-inner {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .footer-brand {
-    grid-column: 1 / -1;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
   }
 
   .footer-bottom {
