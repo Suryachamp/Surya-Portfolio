@@ -72,9 +72,9 @@ function Works() {
             {/* Mock browser / screen UI or Images */}
             {project.images ? (
               <div className="works-project-images">
-                <img src={project.images[0]} alt={`${project.title} main`} className="works-image-main" />
+                <img src={project.images[0]} alt={`${project.title} main screenshot`} className="works-image-main" loading="lazy" width="600" height="400" />
                 {project.images[1] && (
-                  <img src={project.images[1]} alt={`${project.title} secondary`} className="works-image-secondary" />
+                  <img src={project.images[1]} alt={`${project.title} secondary screenshot`} className="works-image-secondary" loading="lazy" width="600" height="400" />
                 )}
               </div>
             ) : (

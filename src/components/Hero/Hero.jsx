@@ -85,7 +85,7 @@ function Hero() {
           <div className="hero-card-wrapper">
             <div className="hero-profile-card">
               <div className="hero-avatar">
-                <img src={heroAvatar} alt="Surya" />
+                <img src={heroAvatar} alt="Surya Sekhar Prajapati - Full Stack Developer" width="120" height="120" />
               </div>
               <div className="hero-profile-info">
                 <h3 className="hero-profile-name">Surya</h3>
