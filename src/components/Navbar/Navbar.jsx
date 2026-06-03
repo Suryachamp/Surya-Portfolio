@@ -53,7 +53,7 @@ function Navbar() {
         ${menuOpen ? '!bg-[rgba(13,17,23,0.95)] backdrop-blur-2xl shadow-[0_10px_30px_rgba(0,0,0,0.4)]' : ''}
       `}
     >
-      <div className="max-w-[1140px] mx-auto px-6 md:pl-[84px] flex items-center gap-8">
+      <div className="max-w-7xl mx-auto px-6 md:pl-[84px] flex items-center gap-8">
         {/* Logo */}
         <a href="#hero" className="flex items-center gap-2 flex-shrink-0" onClick={() => handleNavClick('Home', '#hero')}>
           <div className="css-logo">

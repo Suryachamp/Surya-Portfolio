@@ -12,7 +12,7 @@ function Footer() {
   const currentYear = new Date().getFullYear()
   return (
     <footer className="bg-bg-primary border-t border-white/[0.07] pt-12 pb-6">
-      <div className="max-w-[1140px] mx-auto px-6 md:pl-[84px]">
+      <div className="max-w-7xl mx-auto px-6 md:pl-[84px]">
         {/* Inner: stacks on mobile, row on sm+ */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center flex-wrap gap-8 sm:gap-10 mb-10">
           {/* Brand */}

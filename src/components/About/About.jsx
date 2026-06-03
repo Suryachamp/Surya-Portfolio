@@ -5,12 +5,12 @@ function About() {
   return (
     <section id="about" className="topo-bg bg-bg-secondary py-[100px] relative">
       {/* Section connector */}
-      <div className="flex flex-col items-center max-w-[1140px] mx-auto mb-4 px-6 md:pl-[84px]">
+      <div className="flex flex-col items-center max-w-7xl mx-auto mb-4 px-6 md:pl-[84px]">
         <div className="w-[10px] h-[10px] rounded-full bg-accent shadow-[0_0_12px_#00e5b0]" />
         <div className="w-[2px] h-[60px] bg-gradient-to-b from-transparent to-accent" />
       </div>
 
-      <div className="max-w-[1140px] mx-auto px-6 md:pl-[84px]">
+      <div className="max-w-7xl mx-auto px-6 md:pl-[84px]">
         <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-20">
           {/* Left: Text */}
           <div>

@@ -55,7 +55,7 @@ function Hero() {
       </aside>
 
       {/* Main hero content */}
-      <div className="max-w-[1140px] mx-auto px-6 md:pl-[84px] w-full">
+      <div className="max-w-7xl mx-auto px-6 md:pl-[84px] w-full">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] lg:grid-cols-[1fr_auto] items-center gap-8 md:gap-10 pt-8 animate-fade-in-up">
           {/* Left: Text */}
           <div className="text-center md:text-left">
