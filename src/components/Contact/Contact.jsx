@@ -54,8 +54,12 @@ function Contact() {
           <h2 className="text-[36px] font-bold text-text-primary mb-[10px]">Contact</h2>
           <p className="text-sm text-text-muted mb-6">Currently available for freelance work</p>
           <a href="mailto:surya2004sekhar@gmail.com"
-            className="inline-flex items-center justify-center font-display text-sm font-semibold text-bg-primary bg-accent rounded-pill px-8 py-3 transition-all duration-200 hover:opacity-90 hover:scale-[1.02] hover:shadow-glow">
-            Send Me A Message
+            className="inline-flex items-center justify-center gap-2 font-display text-sm font-semibold text-bg-primary bg-accent rounded-pill px-8 py-3 transition-all duration-200 hover:opacity-90 hover:scale-[1.02] hover:shadow-glow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+            Let's Connect
           </a>
         </div>
 
