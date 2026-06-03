@@ -1,0 +1,234 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---- Google Fonts are loaded via index.html ---- */
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #0d1117;
+    background-image: url('../media/bg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #e6edf3;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  img { max-width: 100%; display: block; }
+  a { text-decoration: none; color: inherit; }
+  ul, ol { list-style: none; }
+  button { cursor: pointer; border: none; background: none; font-family: 'Space Grotesk', sans-serif; }
+  input, textarea { font-family: 'Space Grotesk', sans-serif; }
+}
+
+@layer components {
+  /* Topographic background SVG pattern */
+  .topo-bg {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Cpath d='M0,200 Q150,120 300,200 T600,200' fill='none' stroke='rgba(0,229,176,0.04)' stroke-width='1.5'/%3E%3Cpath d='M0,220 Q150,140 300,220 T600,220' fill='none' stroke='rgba(0,229,176,0.04)' stroke-width='1.5'/%3E%3Cpath d='M0,240 Q150,160 300,240 T600,240' fill='none' stroke='rgba(0,229,176,0.04)' stroke-width='1.5'/%3E%3Cpath d='M0,180 Q150,100 300,180 T600,180' fill='none' stroke='rgba(0,229,176,0.04)' stroke-width='1.5'/%3E%3Cpath d='M0,160 Q150,80 300,160 T600,160' fill='none' stroke='rgba(0,229,176,0.03)' stroke-width='1'/%3E%3Cpath d='M0,260 Q150,180 300,260 T600,260' fill='none' stroke='rgba(0,229,176,0.03)' stroke-width='1'/%3E%3C/svg%3E");
+    background-size: 600px 400px;
+  }
+
+  /* CSS Logo (used in Navbar & Footer) */
+  .css-logo {
+    position: relative;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  .css-logo::before {
+    content: '';
+    position: absolute;
+    top: 53%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 55px;
+    height: 55px;
+    border: 2px solid #00e5b0;
+    border-radius: 50%;
+    z-index: 0;
+  }
+
+  .css-logo-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 32px;
+    color: #00e5b0;
+    z-index: 1;
+    line-height: 1;
+    white-space: nowrap;
+    letter-spacing: 1px;
+    transform: rotate(-5deg);
+    margin-top: -6px;
+  }
+
+  /* Skills category card tab accent */
+  .skills-category-card {
+    position: relative;
+    margin-top: 12px;
+  }
+  .skills-category-card::before {
+    content: '';
+    position: absolute;
+    top: -7px;
+    left: 0px;
+    width: 60px;
+    height: 6px;
+    background-color: #00e5b0;
+    border-radius: 12px 12px 0 0;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+  }
+  .skills-category-card:hover::before {
+    opacity: 1;
+  }
+
+  /* Swiper carousel fade mask */
+  .skills-carousel-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+
+  /* Works project image layout */
+  .works-project-images {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+  }
+  .works-image-main {
+    position: absolute;
+    top: 5%;
+    left: 0;
+    width: 85%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    z-index: 1;
+    transition: transform 0.3s ease;
+  }
+  .works-image-secondary {
+    position: absolute;
+    bottom: 19%;
+    right: 3px;
+    width: 57%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    z-index: 2;
+    transition: transform 0.3s ease;
+  }
+  .works-project-images:hover .works-image-main {
+    transform: translateY(-5px);
+  }
+  .works-project-images:hover .works-image-secondary {
+    transform: translateY(-5px) scale(1.02);
+  }
+
+  /* About image accent decorative border */
+  .about-image-accent {
+    position: absolute;
+    bottom: -12px;
+    right: -12px;
+    width: 60%;
+    height: 60%;
+    border: 2px solid rgba(0, 229, 176, 0.35);
+    border-radius: 20px;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  /* Navbar hamburger animation */
+  .hamburger-open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .hamburger-open span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger-open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Terminal blink cursor */
+  .t-blink {
+    color: #00e5b0;
+    animation: blink 1s step-end infinite;
+  }
+
+  /* Line clamp for blog excerpt */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0d1117; }
+::-webkit-scrollbar-thumb { background: rgba(0, 229, 176, 0.35); border-radius: 3px; }
+
+/* Swiper overrides */
+.skills-swiper .swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+
+/* ---- Swiper: Works pagination dots ---- */
+.works-indicators .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.07);
+  opacity: 1;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.works-indicators .swiper-pagination-bullet-active {
+  background: #00e5b0;
+  transform: scale(1.3);
+}
+
+/* ---- Works nav buttons: Swiper injects disabled class ---- */
+.works-nav-btn--prev.swiper-button-disabled,
+.works-nav-btn--next.swiper-button-disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* ---- Mobile: works carousel smaller nav buttons ---- */
+@media (max-width: 640px) {
+  .works-nav-btn--prev,
+  .works-nav-btn--next {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* ---- Mobile: hero padding ---- */
+@media (max-width: 640px) {
+  #hero {
+    padding-bottom: 64px;
+  }
+}
