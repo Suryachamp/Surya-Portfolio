@@ -69,7 +69,7 @@ function Skills() {
         {/* Skill category cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-[667px] mx-auto mb-12">
           {SKILL_CATEGORIES.map((cat, i) => (
-            <div key={i} className="skills-category-card flex items-center gap-4 bg-bg-card border-t-[3px] border-t-accent rounded-b-md rounded-r-md p-5 transition-all duration-300 hover:-translate-y-[3px] hover:shadow-accent cursor-default">
+            <div key={i} className="skills-category-card flex items-center gap-4 bg-bg-card border-t-[3px] border-t-accent rounded-b-md rounded-r-md p-5 transition-all duration-300 hover:-translate-y-[3px] cursor-default">
               <div className="w-11 h-11 bg-accent-dim border border-accent-border rounded-sm flex items-center justify-center text-accent flex-shrink-0">
                 {cat.icon}
               </div>
