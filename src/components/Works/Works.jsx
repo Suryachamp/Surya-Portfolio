@@ -172,7 +172,7 @@ function Works() {
 
       {/* Global Live Preview Modal */}
       {activePreview && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 md:p-8 animate-fade-in">
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-3 md:p-8 animate-fade-in">
           {/* Backdrop */}
           <div 
             className="absolute inset-0 bg-black/80 backdrop-blur-sm cursor-pointer" 
@@ -182,21 +182,32 @@ function Works() {
           {/* Modal Window */}
           <div className="relative w-full max-w-6xl h-[85vh] md:h-[90vh] bg-[#0d1117] rounded-xl overflow-hidden shadow-2xl border border-white/[0.1] flex flex-col">
             {/* Mac-style Header */}
-            <div className="flex items-center gap-3 px-4 py-3 bg-bg-card border-b border-white/[0.07] flex-shrink-0">
-              <div className="flex gap-[6px]">
-                <button 
-                  onClick={() => setActivePreview(null)} 
-                  className="w-3.5 h-3.5 rounded-full block bg-[#ff5f57] hover:opacity-80 transition-opacity cursor-pointer flex items-center justify-center group" 
-                  aria-label="Close preview"
-                >
-                  <svg className="w-2 h-2 text-black opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M6 18L18 6M6 6l12 12"></path></svg>
-                </button>
-                <span className="w-3.5 h-3.5 rounded-full block bg-[#febc2e]" />
-                <span className="w-3.5 h-3.5 rounded-full block bg-[#28c840]" />
+            <div className="flex items-center justify-between px-4 py-2 md:py-3 bg-bg-card border-b border-white/[0.07] flex-shrink-0">
+              <div className="flex items-center gap-3">
+                <div className="flex gap-[6px]">
+                  <button 
+                    onClick={() => setActivePreview(null)} 
+                    className="w-3.5 h-3.5 rounded-full block bg-[#ff5f57] hover:opacity-80 transition-opacity cursor-pointer flex items-center justify-center group" 
+                    aria-label="Close preview"
+                  >
+                    <svg className="w-2 h-2 text-black opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M6 18L18 6M6 6l12 12"></path></svg>
+                  </button>
+                  <span className="w-3.5 h-3.5 rounded-full block bg-[#febc2e]" />
+                  <span className="w-3.5 h-3.5 rounded-full block bg-[#28c840]" />
+                </div>
+                <span className="text-[12px] md:text-sm text-text-secondary font-display truncate mt-[1px] ml-1">
+                  {PROJECTS.find(p => p.id === activePreview)?.url.replace(/^https?:\/\//, '').replace(/\/$/, '')}
+                </span>
               </div>
-              <span className="text-[12px] md:text-sm text-text-secondary font-display truncate mt-[1px] ml-1">
-                {PROJECTS.find(p => p.id === activePreview)?.url.replace(/^https?:\/\//, '').replace(/\/$/, '')}
-              </span>
+              
+              {/* Explicit Close Button */}
+              <button 
+                onClick={() => setActivePreview(null)}
+                className="flex items-center justify-center w-7 h-7 md:w-8 md:h-8 rounded-md bg-white/[0.05] hover:bg-white/[0.1] text-text-secondary hover:text-white transition-colors cursor-pointer"
+                aria-label="Close modal"
+              >
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+              </button>
             </div>
             
             {/* Iframe Container */}
