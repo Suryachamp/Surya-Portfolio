@@ -49,16 +49,6 @@ const PROJECTS = [
 function Works() {
   const [activePreview, setActivePreview] = useState(null);
 
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (activePreview && !e.target.closest('.preview-popup-container') && !e.target.closest('.preview-btn')) {
-        setActivePreview(null);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [activePreview]);
-
   return (
     <section id="works" className="bg-bg-secondary py-[100px] relative">
       {/* Section connector */}
@@ -96,14 +86,14 @@ function Works() {
                   {/* Image / mock screen */}
                   <div className="relative w-full h-full rounded-md">
                     {project.images ? (
-                      <div className={`works-project-images transition-opacity duration-300 ${activePreview === project.id ? 'opacity-0' : 'opacity-100'}`}>
+                      <div className="works-project-images">
                         <img src={project.images[0]} alt={`${project.title} main screenshot`} className="works-image-main" loading="lazy" width="600" height="400" />
                         {project.images[1] && (
                           <img src={project.images[1]} alt={`${project.title} secondary screenshot`} className="works-image-secondary" loading="lazy" width="600" height="400" />
                         )}
                       </div>
                     ) : (
-                      <div className={`bg-bg-primary border border-white/[0.07] rounded-md overflow-hidden shadow-card transition-opacity duration-300 ${activePreview === project.id ? 'opacity-0' : 'opacity-100'}`}>
+                      <div className="bg-bg-primary border border-white/[0.07] rounded-md overflow-hidden shadow-card">
                         <div className="flex items-center gap-3 px-[14px] py-[10px] bg-bg-card border-b border-white/[0.07]">
                           <div className="flex gap-[5px]">
                             <span className="w-[10px] h-[10px] rounded-full block" style={{ background: '#ff5f57' }} />
@@ -123,30 +113,6 @@ function Works() {
                               {[1, 2, 3].map(i => <div key={i} className="w-2 h-2 rounded-full bg-white/[0.07]" />)}
                             </div>
                           </div>
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Live Preview Iframe Popup */}
-                    {project.url !== '#' && (
-                      <div className={`preview-popup-container absolute inset-[-15px] z-[50] min-h-[450px] md:min-h-0 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] rounded-xl overflow-hidden shadow-card border border-white/[0.07] bg-[#0d1117] flex flex-col origin-bottom ${activePreview === project.id ? 'opacity-100 pointer-events-auto translate-y-0 scale-100' : 'opacity-0 pointer-events-none translate-y-4 scale-[0.95]'}`}>
-                        {/* Simple Mac-style Header */}
-                        <div className="flex items-center gap-3 px-4 py-3 bg-bg-card border-b border-white/[0.07] flex-shrink-0 relative z-20">
-                          <div className="flex gap-[6px]">
-                            <button onClick={() => setActivePreview(null)} className="w-3 h-3 rounded-full block bg-[#ff5f57] hover:opacity-80 transition-opacity cursor-pointer" aria-label="Close preview" />
-                            <span className="w-3 h-3 rounded-full block bg-[#febc2e]" />
-                            <span className="w-3 h-3 rounded-full block bg-[#28c840]" />
-                          </div>
-                          <span className="text-[13px] text-text-secondary font-display truncate mt-[1px]">
-                            {project.url.replace(/^https?:\/\//, '').replace(/\/$/, '')}
-                          </span>
-                        </div>
-                        {/* Iframe container with loader */}
-                        <div className="flex-1 relative bg-[#0d1117] p-3 md:p-4 flex flex-col">
-                           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                             <div className="w-5 h-5 border-2 border-accent border-t-transparent rounded-full animate-spin"></div>
-                           </div>
-                           <iframe src={project.url} className="flex-1 w-full h-full border-none z-10 bg-white rounded-sm" title={`${project.title} Live Preview`} loading="lazy" />
                         </div>
                       </div>
                     )}
@@ -203,6 +169,51 @@ function Works() {
           [&_.works-indicator]:w-2 [&_.works-indicator]:h-2 [&_.works-indicator]:rounded-full [&_.works-indicator]:bg-white/[0.07] [&_.works-indicator]:border-none [&_.works-indicator]:cursor-pointer [&_.works-indicator]:transition-all [&_.works-indicator]:duration-200
           [&_.works-indicator--active]:!bg-[#00e5b0] [&_.works-indicator--active]:!scale-[1.3]" />
       </div>
+
+      {/* Global Live Preview Modal */}
+      {activePreview && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 md:p-8 animate-fade-in">
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-black/80 backdrop-blur-sm cursor-pointer" 
+            onClick={() => setActivePreview(null)}
+          />
+          
+          {/* Modal Window */}
+          <div className="relative w-full max-w-6xl h-[85vh] md:h-[90vh] bg-[#0d1117] rounded-xl overflow-hidden shadow-2xl border border-white/[0.1] flex flex-col">
+            {/* Mac-style Header */}
+            <div className="flex items-center gap-3 px-4 py-3 bg-bg-card border-b border-white/[0.07] flex-shrink-0">
+              <div className="flex gap-[6px]">
+                <button 
+                  onClick={() => setActivePreview(null)} 
+                  className="w-3.5 h-3.5 rounded-full block bg-[#ff5f57] hover:opacity-80 transition-opacity cursor-pointer flex items-center justify-center group" 
+                  aria-label="Close preview"
+                >
+                  <svg className="w-2 h-2 text-black opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+                <span className="w-3.5 h-3.5 rounded-full block bg-[#febc2e]" />
+                <span className="w-3.5 h-3.5 rounded-full block bg-[#28c840]" />
+              </div>
+              <span className="text-[12px] md:text-sm text-text-secondary font-display truncate mt-[1px] ml-1">
+                {PROJECTS.find(p => p.id === activePreview)?.url.replace(/^https?:\/\//, '').replace(/\/$/, '')}
+              </span>
+            </div>
+            
+            {/* Iframe Container */}
+            <div className="flex-1 relative bg-[#0d1117] p-2 md:p-4 flex flex-col">
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="w-6 h-6 border-2 border-accent border-t-transparent rounded-full animate-spin"></div>
+              </div>
+              <iframe 
+                src={PROJECTS.find(p => p.id === activePreview)?.url} 
+                className="flex-1 w-full h-full border-none z-10 bg-white rounded-md" 
+                title="Live Preview" 
+                loading="lazy" 
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }
