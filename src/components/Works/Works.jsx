@@ -129,7 +129,7 @@ function Works() {
 
                     {/* Live Preview Iframe Popup */}
                     {project.url !== '#' && (
-                      <div className={`preview-popup-container absolute inset-[-15px] z-[50] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] rounded-xl overflow-hidden shadow-card border border-white/[0.07] bg-[#0d1117] flex flex-col origin-bottom ${activePreview === project.id ? 'opacity-100 pointer-events-auto translate-y-0 scale-100' : 'opacity-0 pointer-events-none translate-y-4 scale-[0.95]'}`}>
+                      <div className={`preview-popup-container absolute inset-[-15px] z-[50] min-h-[450px] md:min-h-0 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] rounded-xl overflow-hidden shadow-card border border-white/[0.07] bg-[#0d1117] flex flex-col origin-bottom ${activePreview === project.id ? 'opacity-100 pointer-events-auto translate-y-0 scale-100' : 'opacity-0 pointer-events-none translate-y-4 scale-[0.95]'}`}>
                         {/* Simple Mac-style Header */}
                         <div className="flex items-center gap-3 px-4 py-3 bg-bg-card border-b border-white/[0.07] flex-shrink-0 relative z-20">
                           <div className="flex gap-[6px]">
