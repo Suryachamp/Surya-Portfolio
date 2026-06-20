@@ -1,5 +1,5 @@
 // src/components/Works/Works.jsx
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination } from 'swiper/modules'
 import 'swiper/css'
@@ -9,8 +9,18 @@ import BudgetBoxImg from '../../media/Budget-box.png'
 import BudgetDataImg from '../../media/Budget-data.png'
 import SMDashboardImg from '../../media/SM-dashboard.png'
 import SMAddStudentImg from '../../media/SM-add-student.png'
+import CareerForgeImg1 from '../../media/careerforge-1.png'
+import CareerForgeImg2 from '../../media/careerforge-2.png'
 
 const PROJECTS = [
+  {
+    id: 4,
+    title: 'CareerForge',
+    description: 'Full-stack AI-powered career preparation suite. Features an ATS Resume Builder, AI Interview Planner, and Analytics Dashboard.',
+    tags: ['React', 'Node.js', 'MongoDB', 'Express', 'TailwindCSS'],
+    url: 'https://careerforge-rose.vercel.app/',
+    images: [CareerForgeImg1, CareerForgeImg2],
+  },
   {
     id: 1,
     title: 'Budget Box',
@@ -37,6 +47,18 @@ const PROJECTS = [
 ]
 
 function Works() {
+  const [activePreview, setActivePreview] = useState(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (activePreview && !e.target.closest('.preview-popup-container') && !e.target.closest('.preview-btn')) {
+        setActivePreview(null);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [activePreview]);
+
   return (
     <section id="works" className="bg-bg-secondary py-[100px] relative">
       {/* Section connector */}
@@ -72,37 +94,63 @@ function Works() {
               <SwiperSlide key={project.id}>
                 <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-10 items-center animate-fade-in">
                   {/* Image / mock screen */}
-                  {project.images ? (
-                    <div className="works-project-images">
-                      <img src={project.images[0]} alt={`${project.title} main screenshot`} className="works-image-main" loading="lazy" width="600" height="400" />
-                      {project.images[1] && (
-                        <img src={project.images[1]} alt={`${project.title} secondary screenshot`} className="works-image-secondary" loading="lazy" width="600" height="400" />
-                      )}
-                    </div>
-                  ) : (
-                    <div className="bg-bg-primary border border-white/[0.07] rounded-md overflow-hidden shadow-card">
-                      <div className="flex items-center gap-3 px-[14px] py-[10px] bg-bg-card border-b border-white/[0.07]">
-                        <div className="flex gap-[5px]">
-                          <span className="w-[10px] h-[10px] rounded-full block" style={{ background: '#ff5f57' }} />
-                          <span className="w-[10px] h-[10px] rounded-full block" style={{ background: '#febc2e' }} />
-                          <span className="w-[10px] h-[10px] rounded-full block" style={{ background: '#28c840' }} />
-                        </div>
-                        <div className="flex-1 h-[6px] bg-white/[0.07] rounded-sm" />
+                  <div className="relative w-full h-full rounded-md">
+                    {project.images ? (
+                      <div className={`works-project-images transition-opacity duration-300 ${activePreview === project.id ? 'opacity-0' : 'opacity-100'}`}>
+                        <img src={project.images[0]} alt={`${project.title} main screenshot`} className="works-image-main" loading="lazy" width="600" height="400" />
+                        {project.images[1] && (
+                          <img src={project.images[1]} alt={`${project.title} secondary screenshot`} className="works-image-secondary" loading="lazy" width="600" height="400" />
+                        )}
                       </div>
-                      <div className="grid grid-cols-2 h-[200px]">
-                        <div className="p-[14px] border-r border-white/[0.07] flex flex-col gap-2 justify-center">
-                          {[80, 60, 90, 50, 70, 85, 40].map((w, i) => (
-                            <div key={i} className={`h-[3px] rounded-sm ${i % 2 === 1 ? 'bg-accent/20' : 'bg-white/[0.08]'}`} style={{ width: `${w}%` }} />
-                          ))}
+                    ) : (
+                      <div className={`bg-bg-primary border border-white/[0.07] rounded-md overflow-hidden shadow-card transition-opacity duration-300 ${activePreview === project.id ? 'opacity-0' : 'opacity-100'}`}>
+                        <div className="flex items-center gap-3 px-[14px] py-[10px] bg-bg-card border-b border-white/[0.07]">
+                          <div className="flex gap-[5px]">
+                            <span className="w-[10px] h-[10px] rounded-full block" style={{ background: '#ff5f57' }} />
+                            <span className="w-[10px] h-[10px] rounded-full block" style={{ background: '#febc2e' }} />
+                            <span className="w-[10px] h-[10px] rounded-full block" style={{ background: '#28c840' }} />
+                          </div>
+                          <div className="flex-1 h-[6px] bg-white/[0.07] rounded-sm" />
                         </div>
-                        <div className="p-[14px]">
-                          <div className="flex gap-[5px] mb-[10px]">
-                            {[1, 2, 3].map(i => <div key={i} className="w-2 h-2 rounded-full bg-white/[0.07]" />)}
+                        <div className="grid grid-cols-2 h-[200px]">
+                          <div className="p-[14px] border-r border-white/[0.07] flex flex-col gap-2 justify-center">
+                            {[80, 60, 90, 50, 70, 85, 40].map((w, i) => (
+                              <div key={i} className={`h-[3px] rounded-sm ${i % 2 === 1 ? 'bg-accent/20' : 'bg-white/[0.08]'}`} style={{ width: `${w}%` }} />
+                            ))}
+                          </div>
+                          <div className="p-[14px]">
+                            <div className="flex gap-[5px] mb-[10px]">
+                              {[1, 2, 3].map(i => <div key={i} className="w-2 h-2 rounded-full bg-white/[0.07]" />)}
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  )}
+                    )}
+
+                    {/* Live Preview Iframe Popup */}
+                    {project.url !== '#' && (
+                      <div className={`preview-popup-container absolute inset-[-15px] z-[50] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] rounded-xl overflow-hidden shadow-card border border-white/[0.07] bg-[#0d1117] flex flex-col origin-bottom ${activePreview === project.id ? 'opacity-100 pointer-events-auto translate-y-0 scale-100' : 'opacity-0 pointer-events-none translate-y-4 scale-[0.95]'}`}>
+                        {/* Simple Mac-style Header */}
+                        <div className="flex items-center gap-3 px-4 py-3 bg-bg-card border-b border-white/[0.07] flex-shrink-0 relative z-20">
+                          <div className="flex gap-[6px]">
+                            <button onClick={() => setActivePreview(null)} className="w-3 h-3 rounded-full block bg-[#ff5f57] hover:opacity-80 transition-opacity cursor-pointer" aria-label="Close preview" />
+                            <span className="w-3 h-3 rounded-full block bg-[#febc2e]" />
+                            <span className="w-3 h-3 rounded-full block bg-[#28c840]" />
+                          </div>
+                          <span className="text-[13px] text-text-secondary font-display truncate mt-[1px]">
+                            {project.url.replace(/^https?:\/\//, '').replace(/\/$/, '')}
+                          </span>
+                        </div>
+                        {/* Iframe container with loader */}
+                        <div className="flex-1 relative bg-[#0d1117] p-3 md:p-4 flex flex-col">
+                           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                             <div className="w-5 h-5 border-2 border-accent border-t-transparent rounded-full animate-spin"></div>
+                           </div>
+                           <iframe src={project.url} className="flex-1 w-full h-full border-none z-10 bg-white rounded-sm" title={`${project.title} Live Preview`} loading="lazy" />
+                        </div>
+                      </div>
+                    )}
+                  </div>
 
                   {/* Info */}
                   <div>
@@ -113,15 +161,29 @@ function Works() {
                         <span key={tag} className="font-display text-[11px] text-accent bg-accent-dim border border-accent-border rounded-pill px-[10px] py-[3px]">{tag}</span>
                       ))}
                     </div>
-                    <a href={project.url} target="_blank" rel="noreferrer"
-                      className="inline-flex items-center gap-[6px] text-[13px] font-semibold text-text-primary bg-bg-card border border-white/[0.07] rounded-sm px-5 py-[10px] transition-all duration-200 hover:border-accent-border hover:text-accent hover:bg-accent-dim">
-                      View Website
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
-                        <polyline points="15 3 21 3 21 9" />
-                        <line x1="10" y1="14" x2="21" y2="3" />
-                      </svg>
-                    </a>
+                    <div className="flex flex-wrap items-center gap-4">
+                      {project.url !== '#' && (
+                        <button onClick={() => setActivePreview(project.id)}
+                          className="preview-btn inline-flex items-center gap-[6px] text-[13px] font-semibold text-bg-primary bg-accent rounded-sm px-5 py-[10px] transition-all duration-200 hover:bg-[#00c899]">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                          </svg>
+                          Live Preview
+                        </button>
+                      )}
+                      {project.url !== '#' && (
+                        <a href={project.url} target="_blank" rel="noreferrer"
+                          className="inline-flex items-center gap-[6px] text-[13px] font-semibold text-text-primary bg-bg-card border border-white/[0.07] rounded-sm px-5 py-[10px] transition-all duration-200 hover:border-accent-border hover:text-accent hover:bg-accent-dim">
+                          View Website
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                          </svg>
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
               </SwiperSlide>
@@ -139,7 +201,7 @@ function Works() {
         {/* Dots indicator */}
         <div className="works-indicators flex justify-center gap-2 mt-8
           [&_.works-indicator]:w-2 [&_.works-indicator]:h-2 [&_.works-indicator]:rounded-full [&_.works-indicator]:bg-white/[0.07] [&_.works-indicator]:border-none [&_.works-indicator]:cursor-pointer [&_.works-indicator]:transition-all [&_.works-indicator]:duration-200
-          [&_.works-indicator--active]:bg-accent [&_.works-indicator--active]:scale-[1.3]" />
+          [&_.works-indicator--active]:!bg-[#00e5b0] [&_.works-indicator--active]:!scale-[1.3]" />
       </div>
     </section>
   )

@@ -49,7 +49,7 @@ function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-300
-        ${scrolled ? 'bg-[rgba(13,17,23,0.75)] backdrop-blur-2xl border-b border-white/[0.08] shadow-[0_10px_30px_rgba(0,0,0,0.4)] py-3' : 'py-[18px]'}
+        ${scrolled ? 'bg-[rgba(13,17,23,0.75)] backdrop-blur-2xl shadow-[0_10px_30px_rgba(0,0,0,0.4)] py-3' : 'py-[18px]'}
         ${menuOpen ? '!bg-[rgba(13,17,23,0.95)] backdrop-blur-2xl shadow-[0_10px_30px_rgba(0,0,0,0.4)]' : ''}
       `}
     >
