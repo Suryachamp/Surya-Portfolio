@@ -9,6 +9,12 @@ This is a modern, responsive web portfolio built with React and Tailwind CSS, fe
 - **AI Model:** Google Gemini 2.5 Flash-Lite (`@google/genai`)
 - **Deployment:** Vercel
 
+## ✨ Key Features
+
+- **AI Assistant Chatbot**: Integrated Gemini 2.5 Flash-Lite model acting as a personal recruiter assistant, fully aware of your skills and experience.
+- **Interactive Live Previews**: Cinematic, full-screen responsive modals allowing visitors to instantly explore your live project websites directly within the portfolio.
+- **Premium UI/UX**: Dark-themed, Mac-inspired styling built with Tailwind CSS, featuring fluid micro-animations, glassmorphism, and a fully responsive layout.
+
 ## 🛠 Local Development
 
 ### Step 1 — Install dependencies
