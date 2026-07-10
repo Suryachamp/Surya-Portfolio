@@ -82,19 +82,24 @@ function Skills() {
         </div>
 
         {/* Tech icon Carousel */}
-        <div className="skills-carousel-container">
+        <div className="skills-carousel-container overflow-hidden">
           <Swiper
             modules={[Autoplay]}
-            spaceBetween={48}
-            slidesPerView="auto"
+            spaceBetween={20}
+            slidesPerView={3}
+            breakpoints={{
+              480: { slidesPerView: 4, spaceBetween: 30 },
+              768: { slidesPerView: 5, spaceBetween: 40 },
+              1024: { slidesPerView: 7, spaceBetween: 48 },
+            }}
             loop={true}
             speed={3000}
             autoplay={{ delay: 0, disableOnInteraction: false, pauseOnMouseEnter: true }}
             className="skills-swiper py-5"
           >
             {TECH_SKILLS.map((tech, i) => (
-              <SwiperSlide key={i} style={{ width: 'auto' }}>
-                <div className="flex flex-col items-center gap-[10px] cursor-default min-w-[80px] group"
+              <SwiperSlide key={i}>
+                <div className="flex flex-col items-center gap-[10px] cursor-default group"
                   style={{ '--tech-color': tech.color, '--tech-bg': tech.bg }}>
                   <div className="w-[72px] h-[72px] rounded-full flex items-center justify-center border-2 border-white/[0.08] transition-all duration-300
                     group-hover:-translate-y-[5px] group-hover:scale-[1.05]"
