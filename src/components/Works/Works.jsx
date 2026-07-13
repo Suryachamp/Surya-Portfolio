@@ -31,11 +31,10 @@ const PROJECTS = [
   },
   {
     id: 2,
-    title: 'Quorium Student Management System',
-    description: 'Responsive student management app with a dashboard, searchable list, and add-student form using the DummyJSON API.',
-    tags: ['React', 'TailwindCSS', 'shadcn/ui'],
-    url: 'https://spiffy-cobbler-ce6d95.netlify.app/',
-    images: [SMDashboardImg, SMAddStudentImg],
+    title: 'Subscription Manager',
+    description: 'Production-ready subscription tracking REST API with layered architecture, user-scoped data access, schema validation, and secure JWT authentication.',
+    tags: ['Node.js', 'Express', 'PostgreSQL', 'Prisma ORM', 'JWT', 'Zod'],
+    url: 'https://github.com/Suryachamp',
   },
   {
     id: 3,

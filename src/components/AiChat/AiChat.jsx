@@ -17,46 +17,52 @@ Full Name: Surya Sekhar Prajapati
 Role: Full Stack Developer
 Location: Jaipur, India
 Email: surya2004sekhar@gmail.com
-Phone: +91 7980280372
+Phone: +91-79802-80372
 Availability: Available for full-time roles and freelance projects
+Summary: Full Stack Developer with production frontend experience and hands-on backend development across personal full-stack projects. Builds end-to-end applications using React, Next.js, Node.js.
 
 == WORK EXPERIENCE ==
-- Front End Developer at Ubuy Technologies Pvt. Ltd., Jaipur (Jan 2026 – Present)
-  * Built responsive pages using HTML, SCSS, Bootstrap
-  * Developed with Next.js: routing, SSR, modular architecture
-  * Designed mobile-first layouts
+- Frontend Software Engineer, Jaipur (Sep 2025 – Present)
+  * Engineered 30+ responsive pages and 15+ React/Next.js components with SSR and dynamic routing.
+  * Diagnosed and resolved Google PageSpeed Insights failures (CLS, images) improving Core Web Vitals.
+  * Containerized local dev environments with Docker.
 
 == EDUCATION ==
-- B.Tech in Computer Science – University of Engineering and Management, Jaipur (2022–2026), GPA: 8.12/10
+- B.Tech in Computer Science – University of Engineering and Management, Jaipur (2022–2026), GPA: 8.50/10
 - WBCHSE – Nava Nalanda School, Kolkata (2022), 86%
 
 == TECH STACK ==
-Frontend: React, Next.js, HTML, CSS, SCSS, TailwindCSS, Bootstrap, shadcn/ui
-Backend: Node.js, Express.js
-Database: MongoDB, PostgreSQL, IndexedDB
-AI/APIs: Gemini API, REST APIs
-Other: Vite, Git, GitHub, Vercel, Netlify
+Frontend: React, Next.js, Redux Toolkit, Bootstrap, Tailwind CSS, jQuery, Shadcn/UI
+Backend: Node.js, Express.js, REST API Design, JWT Authentication, Prisma ORM
+Database: MongoDB, PostgreSQL, MySQL, SQL
+AI/APIs: Cursor, Claude Code, Lovable, Google Gemini API
+DevOps/Other: Docker, Git, GitHub, Postman, Vercel, Netlify, Render, Vite, Webpack
 
 == PROJECTS ==
-1. Budget Box
+1. Subscription Manager (Jun 2026 – Present)
+   - Production-ready subscription tracking REST API
+   - Stack: Node.js, Express, PostgreSQL, Prisma ORM, JWT, Zod
+   - Highlights: Layered architecture, user-scoped data access, complete auth flow.
+
+2. CareerForge - AI Career & Resume Suite (May – Jun 2026)
+   - Full-stack AI career platform with a React/Vite frontend and Node.js backend.
+   - Stack: MERN Stack, JWT, Google Gemini API, Docker
+   - Highlights: AI-guided resume editor with real-time compiler, tailored interview generation, Dockerized deployment.
+
+3. Budget Box (Nov – Dec 2025)
    - Offline-first budgeting app with analytics dashboard
-   - Stack: Next.js, IndexedDB, Node.js, PostgreSQL
+   - Stack: Next.js, Node.js, PostgreSQL, IndexedDB
    - URL: https://budgetboxfrontend.vercel.app/
-   - Highlights: Works without internet, syncs when back online
+   - Highlights: Works without network dependency, 6-module analytics dashboard.
 
-2. Quorium Student Management System
-   - Responsive student management app with dashboard and searchable list
-   - Stack: React, TailwindCSS, shadcn/ui, DummyJSON API
-   - URL: https://spiffy-cobbler-ce6d95.netlify.app/
-
-3. Nagrik And Samvidhan
+4. Nagrik And Samvidhan (Aug – Nov 2024)
    - AI-assisted civic education app using Gemini API
-   - Features: AI summarization, Snake & Ladder game, quizzes
-   - Stack: React, Gemini API, JavaScript, CSS
+   - Features: AI summarization, gamified learning modules
+   - Stack: React, JavaScript, Gemini API
 
 == SOCIAL LINKS ==
 GitHub: https://github.com/Suryachamp
-LinkedIn: https://linkedin.com/in/surya-sekhar-prajapati-632708262/
+LinkedIn: linkedin.com/in/surya-sekhar-prajapati
 
 == PERSONALITY / STYLE ==
 Keep answers short (2–4 sentences max unless a list is needed).
