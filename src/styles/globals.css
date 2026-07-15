@@ -81,35 +81,7 @@
     margin-top: -6px;
   }
 
-  /* Skills category card tab accent */
-  .skills-category-card {
-    position: relative;
-    margin-top: 12px;
-  }
-  .skills-category-card::before {
-    content: '';
-    position: absolute;
-    top: -7px;
-    left: 0px;
-    width: 60px;
-    height: 6px;
-    background-color: #00e5b0;
-    border-radius: 12px 12px 0 0;
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
-  }
-  .skills-category-card:hover::before {
-    opacity: 1;
-  }
 
-  /* Swiper carousel fade mask */
-  .skills-carousel-container {
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-  }
 
   /* Works project image layout */
   .works-project-images {
@@ -190,10 +162,7 @@
 ::-webkit-scrollbar-track { background: #0d1117; }
 ::-webkit-scrollbar-thumb { background: rgba(0, 229, 176, 0.35); border-radius: 3px; }
 
-/* Swiper overrides */
-.skills-swiper .swiper-wrapper {
-  transition-timing-function: linear !important;
-}
+
 
 /* ---- Swiper: Works pagination dots ---- */
 .works-indicators .swiper-pagination-bullet {
