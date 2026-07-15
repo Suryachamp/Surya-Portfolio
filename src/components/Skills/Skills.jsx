@@ -400,7 +400,7 @@ export default function Skills() {
   }, [])
 
   return (
-    <section id="skills" className="topo-bg bg-bg-primary py-[100px] relative">
+    <section id="skills" className="topo-bg bg-bg-primary py-[100px] relative overflow-hidden">
       {/* Keyframes for constellation float & current flow */}
       <style>{`
         @keyframes constellationSpin {
