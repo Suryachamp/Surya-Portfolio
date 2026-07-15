@@ -65,22 +65,22 @@ const CATEGORY_POSITIONS = [
 const SKILL_ORBITS = [
   // Frontend (top) — skills fan out above and to the sides
   [
-    { x: 26, y: 4 }, { x: 42, y: 2 }, { x: 58, y: 2 }, { x: 74, y: 4 },
-    { x: 20, y: 14 }, { x: 80, y: 14 }, { x: 50, y: 6 },
+    { x: 28, y: 6 }, { x: 40, y: 2 }, { x: 60, y: 2 }, { x: 72, y: 6 },
+    { x: 18, y: 14 }, { x: 82, y: 14 }, { x: 50, y: 0 },
   ],
   // Backend (right) — skills fan out to the right
   [
-    { x: 92, y: 28 }, { x: 96, y: 40 }, { x: 96, y: 60 }, { x: 92, y: 72 },
-    { x: 86, y: 34 },
+    { x: 92, y: 24 }, { x: 98, y: 38 }, { x: 98, y: 62 }, { x: 92, y: 76 },
+    { x: 74, y: 30 },
   ],
   // Database (bottom) — skills fan out below
   [
-    { x: 26, y: 96 }, { x: 42, y: 98 }, { x: 58, y: 98 }, { x: 74, y: 96 },
+    { x: 24, y: 88 }, { x: 38, y: 96 }, { x: 62, y: 96 }, { x: 76, y: 88 },
   ],
   // DevOps & AI (left) — skills fan out to the left
   [
-    { x: 8, y: 28 }, { x: 4, y: 40 }, { x: 4, y: 60 }, { x: 8, y: 72 },
-    { x: 14, y: 34 }, { x: 14, y: 66 },
+    { x: 6, y: 24 }, { x: 0, y: 38 }, { x: 0, y: 62 }, { x: 6, y: 76 },
+    { x: 24, y: 26 }, { x: 24, y: 74 },
   ],
 ]
 
@@ -305,9 +305,20 @@ function SkillNode({ name, color, position, delay, spinDirection }) {
 // ─── Mobile skill card (used on small screens) ───────────────────────────
 function MobileCategoryCard({ category }) {
   return (
-    <div className="border border-white/[0.07] bg-bg-card rounded-md p-5 transition-all duration-300 hover:-translate-y-1">
+    <div 
+      className="rounded-xl p-6 transition-all duration-300 hover:-translate-y-2 relative overflow-hidden bg-bg-primary"
+      style={{
+         border: `1px solid ${category.color}30`,
+         boxShadow: `0 8px 32px ${category.color}0a`,
+      }}
+    >
+      {/* Background glow orb */}
+      <div 
+         className="absolute top-0 right-0 w-32 h-32 rounded-full blur-[50px] pointer-events-none opacity-20"
+         style={{ background: category.color, transform: 'translate(30%, -30%)' }}
+      />
       {/* Category header */}
-      <div className="flex items-center gap-3 mb-4">
+      <div className="flex items-center gap-3 mb-5 relative z-10">
         <div
           className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
           style={{
@@ -542,11 +553,35 @@ export default function Skills() {
           </div>
         )}
 
-        {/* ── Mobile: Card-based layout ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:hidden">
-          {CATEGORIES.map((cat) => (
-            <MobileCategoryCard key={cat.id} category={cat} />
-          ))}
+        {/* ── Mobile: Themed List Layout ── */}
+        <div className="flex flex-col items-center md:hidden relative pt-6">
+          {/* Top Brain Hub */}
+          <div className="flex flex-col items-center gap-2 mb-8 relative z-10">
+            <div className="w-[64px] h-[64px] rounded-full bg-bg-secondary border-2 border-accent flex items-center justify-center shadow-glow relative">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00e5b0" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" />
+                <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" />
+                <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4" />
+                <path d="M17.599 6.5a3 3 0 0 0 .399-1.375" />
+                <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5" />
+                <path d="M3.477 10.896a4 4 0 0 1 .585-.396" />
+                <path d="M19.938 10.5a4 4 0 0 1 .585.396" />
+                <path d="M6 18a4 4 0 0 1-1.967-.516" />
+                <path d="M19.967 17.484A4 4 0 0 1 18 18" />
+              </svg>
+              <div className="absolute inset-0 rounded-full border border-accent animate-ping opacity-30" />
+            </div>
+          </div>
+
+          {/* Glowing vertical spine connecting the brain to the cards */}
+          <div className="absolute top-[40px] bottom-10 left-1/2 w-[2px] -translate-x-1/2 bg-gradient-to-b from-accent/40 via-accent/10 to-transparent z-0" />
+
+          {/* Cards container */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full relative z-10 px-2">
+            {CATEGORIES.map((cat) => (
+              <MobileCategoryCard key={cat.id} category={cat} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
