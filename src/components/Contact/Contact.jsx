@@ -36,6 +36,14 @@ function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    
+    // Check if any fields are empty
+    const { name, email, subject, message } = formData
+    if (!name.trim() || !email.trim() || !subject.trim() || !message.trim()) {
+      alert("Please fill in all fields before sending your message.")
+      return
+    }
+
     setIsSubmitting(true)
     try {
       await emailjs.send('service_j1ew6p5', 'template_vuxu4v8', formData, 'A60hsr4mr12gA70Gm')
@@ -91,7 +99,7 @@ function Contact() {
           </div>
 
           {/* Form */}
-          <form className="flex flex-col gap-6" onSubmit={handleSubmit} noValidate>
+          <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
             <div className="flex flex-wrap gap-4">
               {FORM_FIELDS.map(field => (
                 <div key={field.id}
