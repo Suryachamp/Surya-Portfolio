@@ -26,13 +26,22 @@ const PageTransition = () => {
         setGreetingIndex((prev) => {
           if (prev === GREETINGS.length - 1) {
             clearInterval(intervalId);
-            // Hold on the final name for 600ms before triggering the fade out
-            setTimeout(() => setPhase('fade-out'), 600);
+            // Hold on the final name for 600ms before zooming it out
+            setTimeout(() => setPhase('greeting-zoom'), 600);
             return prev;
           }
           return prev + 1;
         });
       }, 140);
+    }
+
+    if (phase === 'greeting-zoom') {
+      // Wait for the 400ms text zoom-out animation to completely finish 
+      // before starting the background fade
+      const timer = setTimeout(() => {
+        setPhase('fade-out');
+      }, 450);
+      return () => clearTimeout(timer);
     }
 
     if (phase === 'fade-out') {
@@ -52,7 +61,7 @@ const PageTransition = () => {
 
   return (
     <div className={`transition-wrapper ${phase === 'fade-out' ? 'fade' : ''}`}>
-      <div className={`greeting-container ${phase === 'fade-out' ? 'zoom-out' : ''}`}>
+      <div className={`greeting-container ${(phase === 'greeting-zoom' || phase === 'fade-out') ? 'zoom-out' : ''}`}>
         <h1 
           key={greetingIndex} 
           className={`text-5xl md:text-7xl font-display font-bold tracking-widest uppercase ${greetingIndex === GREETINGS.length - 1 ? 'final-greeting' : 'text-text-primary'}`}
