@@ -38,7 +38,7 @@ function About() {
                   <span className="text-xs text-text-muted ml-2">surya.js</span>
                 </div>
                 {/* Terminal body */}
-                <div className="p-5 text-[13px] leading-[2] text-text-primary">
+                <div className="p-4 sm:p-5 text-[11px] sm:text-[13px] leading-[1.8] sm:leading-[2] text-text-primary overflow-x-auto">
                   <p><span className="text-[#d2a8ff]">const</span> <span className="text-[#79c0ff]">developer</span> = {'{'}</p>
                   <p>&nbsp;&nbsp;<span className="text-[#7ee787]">name</span>: <span className="text-[#f0c27f]">"Surya"</span>,</p>
                   <p>&nbsp;&nbsp;<span className="text-[#7ee787]">role</span>: <span className="text-[#f0c27f]">"Full Stack Dev"</span>,</p>
