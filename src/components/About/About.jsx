@@ -83,7 +83,7 @@ function About() {
               {
                 role: 'B.Tech in Computer Science',
                 org: 'University of Engineering and Management | Jaipur, India',
-                date: '2022 – 2026 | GPA: 8.50/10',
+                date: '2022 – 2026 | GPA: 8.32/10',
               },
               {
                 role: 'WBCHSE',

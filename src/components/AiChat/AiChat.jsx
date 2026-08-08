@@ -28,7 +28,7 @@ Summary: Full Stack Developer with production frontend experience and hands-on b
   * Containerized local dev environments with Docker.
 
 == EDUCATION ==
-- B.Tech in Computer Science – University of Engineering and Management, Jaipur (2022–2026), GPA: 8.50/10
+- B.Tech in Computer Science – University of Engineering and Management, Jaipur (2022–2026), GPA: 8.32/10
 - WBCHSE – Nava Nalanda School, Kolkata (2022), 86%
 
 == TECH STACK ==
