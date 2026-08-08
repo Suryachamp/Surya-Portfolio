@@ -19,7 +19,10 @@ const PageTransition = () => {
   const [textIndex, setTextIndex] = useState(0);
 
   useEffect(() => {
-    document.body.style.overflow = 'hidden';
+    if (phase !== 'done') {
+      document.body.style.overflow = 'hidden';
+    }
+    
     let cycleInterval;
 
     if (phase === 'text-cycle') {
