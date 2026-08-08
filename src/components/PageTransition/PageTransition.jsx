@@ -21,7 +21,6 @@ const BOOT_LOGS = [
 ];
 
 const PageTransition = () => {
-  // Phases: greeting -> greeting-zoom -> booting -> fade-out -> done
   const [phase, setPhase] = useState('greeting'); 
   const [greetingIndex, setGreetingIndex] = useState(0);
   const [logIndex, setLogIndex] = useState(0);
@@ -81,8 +80,6 @@ const PageTransition = () => {
 
   return (
     <div className={`transition-wrapper ${phase === 'fade-out' ? 'fade' : ''}`}>
-      
-      {/* PHASE 1: Welcoming Greeting Cycle */}
       {(phase === 'greeting' || phase === 'greeting-zoom') && (
         <div className={`greeting-container ${phase === 'greeting-zoom' ? 'zoom-out' : ''}`}>
           <h1 
@@ -94,7 +91,6 @@ const PageTransition = () => {
         </div>
       )}
 
-      {/* PHASE 2: Developer Terminal Boot Sequence */}
       {(phase === 'booting' || phase === 'fade-out') && (
         <div className={`terminal-window ${phase === 'fade-out' ? 'zoom-in' : 'pop-in'}`}>
           <div className="terminal-header">
@@ -111,14 +107,12 @@ const PageTransition = () => {
               </div>
             ))}
             
-            {/* Active blinking cursor line */}
             {phase === 'booting' && logIndex < BOOT_LOGS.length - 1 && (
               <div className="terminal-line">
                 <span className="terminal-prompt">$</span> <span className="blinking-cursor"></span>
               </div>
             )}
             
-            {/* Final success message */}
             {logIndex === BOOT_LOGS.length - 1 && (
               <div className="terminal-success">
                 System ready. Launching portfolio... <span className="blinking-cursor"></span>
