@@ -36,11 +36,10 @@ const PageTransition = () => {
     }
 
     if (phase === 'greeting-zoom') {
-      // Wait for the 400ms text zoom-out animation to completely finish 
-      // before starting the background fade
+      // Let the massive Netflix-style zoom run for 1 second before fading the background
       const timer = setTimeout(() => {
         setPhase('fade-out');
-      }, 450);
+      }, 1000);
       return () => clearTimeout(timer);
     }
 
