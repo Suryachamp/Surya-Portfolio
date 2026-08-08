@@ -27,6 +27,7 @@ const CONTACT_INFO = [
 function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleChange = e => {
     const { id, value } = e.target
@@ -35,10 +36,17 @@ function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await emailjs.send('service_j1ew6p5', 'template_vuxu4v8', formData, 'A60hsr4mr12gA70Gm')
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 3000)
-    setFormData({ name: '', email: '', subject: '', message: '' })
+    setIsSubmitting(true)
+    try {
+      await emailjs.send('service_j1ew6p5', 'template_vuxu4v8', formData, 'A60hsr4mr12gA70Gm')
+      setSubmitted(true)
+      setTimeout(() => setSubmitted(false), 3000)
+      setFormData({ name: '', email: '', subject: '', message: '' })
+    } catch (error) {
+      console.error('Failed to send message:', error)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -118,10 +126,20 @@ function Contact() {
 
             <button
               type="submit"
-              className={`inline-flex items-center justify-center gap-2 w-full sm:w-auto self-start font-display text-sm font-semibold text-bg-primary rounded-pill px-8 py-3 border-none cursor-pointer transition-all duration-200 hover:opacity-90 hover:scale-[1.02] hover:shadow-glow
+              disabled={isSubmitting}
+              className={`inline-flex items-center justify-center gap-2 w-full sm:w-auto self-start font-display text-sm font-semibold text-bg-primary rounded-pill px-8 py-3 border-none transition-all duration-200
+                ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer hover:opacity-90 hover:scale-[1.02] hover:shadow-glow'}
                 ${submitted ? 'bg-[#28c840]' : 'bg-accent'}`}
             >
-              {submitted ? (
+              {isSubmitting ? (
+                <>
+                  <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-bg-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Sending...
+                </>
+              ) : submitted ? (
                 <>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                     <polyline points="20 6 9 17 4 12" />
