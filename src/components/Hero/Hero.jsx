@@ -1,7 +1,7 @@
 // src/components/Hero/Hero.jsx
 import React, { useEffect, useRef } from 'react'
 import heroAvatar from '../../media/hero_avatar.jpg'
-import resumePdf from '../../media/Surya_Sekhar_Prajapati_Resume.pdf'
+import resumeDocx from '../../media/Surya_Sekhar_Prajapati_Resume.docx'
 
 function Hero() {
   const cursorRef = useRef(null)
@@ -129,7 +129,7 @@ function Hero() {
               </div>
 
               {/* Download CV */}
-              <a href={resumePdf} download="Surya_Sekhar_Prajapati_Resume.pdf"
+              <a href={resumeDocx} download="Surya_Sekhar_Prajapati_Resume.docx"
                 className="flex items-center justify-center gap-2 text-base font-semibold text-[#333] bg-white rounded-[30px] px-4 py-3 w-full no-underline transition-all duration-200 hover:-translate-y-[2px] hover:shadow-[0_4px_12px_rgba(255,255,255,0.2)] font-body">
                 Download CV
                 <svg className="w-5 h-5 stroke-[2.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
